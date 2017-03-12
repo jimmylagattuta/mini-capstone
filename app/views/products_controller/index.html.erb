@@ -1,0 +1,9 @@
+<h1> Products! </h1> 
+
+ <% @products.each do |product| %>
+ <div>
+<a href= "http://localhost:3000/products/<%=product.id%>"> <%= product.name %> </a>
+<br>
+<br>
+</div>
+<% end %>

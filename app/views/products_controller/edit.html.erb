@@ -1,0 +1,13 @@
+<h1> Edit Product </h1>
+
+<%= form_tag "/products/#{@product.id}", method: :patch do %>
+
+	Name: <input type="text" name="product_name" value="<%= @product.name %>">
+<br>	
+	Price: <input type="text" name="product_price" value="<%= @product.price %>">
+<br>	
+	Description: <input type="text" name="product_description" value="<%= @product.description %>">
+<br>
+<input type="submit" value="edit_product">
+
+<% end %>

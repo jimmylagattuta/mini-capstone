@@ -1,0 +1,8 @@
+<h1> Product: <%= @product.name %> </h1>
+<p> $<%= @product.price %>
+</p>
+<%= @product.description %>
+<br>
+<br>
+<br>
+<%= button_to "Sell pet", "/products/#{@product.id}", method: :delete %>
