@@ -6,3 +6,7 @@
 <br>
 <br>
 <%= button_to "Sell pet", "/products/#{@product.id}", method: :delete %>
+<%= button_to "Edit pet", "/products/#{@product.id}/edit", method: :get%>
+
+<img class="images" src="<%= @product.image %>">
+

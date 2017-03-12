@@ -15,7 +15,8 @@ class ProductsControllerController < ApplicationController
 		input_name = params[:product_name]
 		input_price = params[:product_price].to_i
 		input_description = params[:product_description]
-		@product_add = Product.create(name: input_name, price: input_price, description: input_description)
+		input_image = params[:product_image]
+		@product_add = Product.create(name: input_name, price: input_price, description: input_description, image: input_image)
 	end
 
 	def edit
@@ -33,6 +34,7 @@ class ProductsControllerController < ApplicationController
 		@product.name = params[:product_name]
 		@product.price = params[:product_price]
 		@product.description = params[:product_description]
+		@product.image = params[:product_image]
 		@product.save
 
 		redirect_to "/products/#{@product.id}"
