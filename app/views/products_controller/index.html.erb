@@ -1,9 +1,19 @@
 <h1> Products! </h1> 
-
- <% @products.each do |product| %>
- <div>
-<a href= "http://localhost:3000/products/<%=product.id%>"> <%= product.name %> </a>
-<br>
-<br>
-</div>
+	<% @products.each_slice(3) do |three_products| %>
+	<div class="row">
+		<% three_products.each do |product| %>
+			<div class="col-md-4">
+				<div class="well">
+		 			<div>
+						<h2><a href= "http://localhost:3000/products/<%=product.id%>"> <%= product.name %> </a></h2>
+						<img class="index_product_image" src="<%= product.image %>">
+						<br>
+					</div>
+				</div>
+			</div>	
+		<% end %>	
+	</div>
+	<br>
+	<br>
 <% end %>
+<%= button_to "New pet", "/products/new", method: :get %>

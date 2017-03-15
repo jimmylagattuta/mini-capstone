@@ -1,12 +1,14 @@
-<h1> Product: <%= @product.name %> </h1>
+<h1> Dog: <%= @product.name %> </h1>
 <p> $<%= @product.price %>
 </p>
 <%= @product.description %>
 <br>
 <br>
 <br>
-<%= button_to "Sell pet", "/products/#{@product.id}", method: :delete %>
-<%= button_to "Edit pet", "/products/#{@product.id}/edit", method: :get%>
+<%= button_to "Pet Adopted", "/products/#{@product.id}", method: :delete %>
+<%= button_to "Edit pet", "/products/#{@product.id}/edit", method: :get %>
+<br>
+<br>
 
 <img class="images" src="<%= @product.image %>">
 

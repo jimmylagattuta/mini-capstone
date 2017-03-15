@@ -17,11 +17,13 @@ class ProductsControllerController < ApplicationController
 		input_description = params[:product_description]
 		input_image = params[:product_image]
 		@product_add = Product.create(name: input_name, price: input_price, description: input_description, image: input_image)
+		flash[:info] = "Pet Successfully Added"
+		redirect_to "/products/#{@product_add.id}"
 	end
 
 	def edit
-		recipe_id = params[:id]
-		@product = Product.find_by(id: recipe_id)
+		product_id = params[:id]
+		@product = Product.find_by(id: product_id)
 	end
 
 	def update
@@ -37,12 +39,15 @@ class ProductsControllerController < ApplicationController
 		@product.image = params[:product_image]
 		@product.save
 
+		flash[:success] = "Pet successfully updated"
+
 		redirect_to "/products/#{@product.id}"
 	end
 
 	def destroy
 		@product = Product.find_by(id: params[:id])
 		@product.destroy
+		flash[:danger] = "Pet Adopted"
 		redirect_to "/products"
 	end
 
