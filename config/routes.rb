@@ -11,14 +11,13 @@ Rails.application.routes.draw do
   post "/products" => "products_controller#create"
   #wildcards will take any parameter, very helpful to put at end of routes
   get "/products/:id" => "products_controller#show"
-
+  
   #Edit and update
   get "/products/:id/edit" => "products_controller#edit"
   patch "/products/:id" => "products_controller#update"
 
   delete "/products/:id" => "products_controller#destroy"
 
-
-
+  post "/search" => "products_controller#search"
 
 end

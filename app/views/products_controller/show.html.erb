@@ -3,6 +3,10 @@
 </p>
 <%= @product.description %>
 <br>
+<p> 
+<%= @product.sale_messege %>
+</p>
+<br>
 <br>
 <br>
 <%= button_to "Pet Adopted", "/products/#{@product.id}", method: :delete %>
