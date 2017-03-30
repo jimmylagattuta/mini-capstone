@@ -1,0 +1,13 @@
+<h1> Login Form </h1>
+
+<%= form_tag "/login", method: :post do %>
+	<div>
+	Email: <input type="text" name="user_email">
+	</div>
+	<div>
+	Password: <input type="password" name="user_password">
+	</div>
+	<div>
+	<input type="submit" name="Login">
+	</div>
+<% end %>

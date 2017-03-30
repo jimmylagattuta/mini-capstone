@@ -1,0 +1,13 @@
+<h1> Suppliers! </h1>
+
+<%= button_to "Add Supplier", "/suppliers/new", method: :get %>
+
+
+<% @suppliers.each do |supplier| %>
+	<div>
+	<h2><a href= "http://localhost:3000/suppliers/<%=supplier.id%>"> <%= supplier.name %> </a></h2>
+	<br>
+	</div>
+	<br>
+	<br>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  photo_one: MyString
+  photo_two: MyString
+  photo_three: MyString
+  photo_four: MyString
+  photo_five: MyString
+
+two:
+  photo_one: MyString
+  photo_two: MyString
+  photo_three: MyString
+  photo_four: MyString
+  photo_five: MyString

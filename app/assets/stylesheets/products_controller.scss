@@ -11,6 +11,29 @@ body {
 	font-family:Papyrun, Arial;
 	background-image: url('congruent_pentagon.png');
 }
-.index_product_image {
-	width: 120px;
+.product_image {
+	width: 220px;
+}
+.show_images {
+	width: 300px;
+}
+
+.links {
+	padding: 100px;
+}
+
+#welcome {
+	align-right: 100px;
+	border: 3px solid green;
+	border-radius: 10px;
+	float: left;
+}
+
+.petstore {
+	float: right;
+	border: 3px solid green;
+	border-radius: 10px;
+	}
+.active {
+	width: 50 px;
 }

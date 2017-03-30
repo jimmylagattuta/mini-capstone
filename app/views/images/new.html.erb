@@ -1,0 +1,11 @@
+<h1> Add Image Here! </h1>
+
+<h2> Adding image to: <%= @product.name %></h2>
+
+<%= form_tag "/products/#{@product.id}/images", method: :post do %>
+<br>
+	Image: <input type="text" name="product_image">
+<br>
+<input type="submit" value="add_image">
+
+<% end %>

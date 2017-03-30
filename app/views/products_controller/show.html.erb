@@ -1,18 +1,51 @@
 <h1> Dog: <%= @product.name %> </h1>
 <p> $<%= @product.price %>
 </p>
-<%= @product.description %>
+
+
+<ul>
+<% @product.description_split.each do |describe| %>
+	<li> <%= describe %> </li>
+	<% end %>
+</ul>
 <br>
 <p> 
 <%= @product.sale_messege %>
 </p>
 <br>
+<%= @product.stock_of_breed %>
 <br>
 <br>
-<%= button_to "Pet Adopted", "/products/#{@product.id}", method: :delete %>
-<%= button_to "Edit pet", "/products/#{@product.id}/edit", method: :get %>
+Supplier: <%= @product.supplier.name %>
+<br>
+
+<br>
+<br>
+<% if @product.stock > 0 %>
+	<%= form_tag "/cartedproducts", method: :post do %>
+	<br>
+	Would you like to adopt: <input type="text" name="quantity">
+	<br>
+	<input type="hidden" name="product_id" value="<%= @product.id %>">
+	<br>
+	<input type="submit" value="Add Your Dog(s) to Cart"> 
+	<br>
+
+	<% @product.stock_of_breed %>
+
+	<% end %>
+<% end %>
+<br>
+<% if current_user && current_user.admin %>
+	<%= button_to "Add Image to Pet", "/products/#{@product.id}/images/new", method: :get %>
+	<%= button_to "Pet Adopted", "/products/#{@product.id}", method: :delete %>
+	<%= button_to "Edit pet", "/products/#{@product.id}/edit", method: :get %>
+<% end %>
 <br>
 <br>
 
-<img class="images" src="<%= @product.image %>">
+<% @product.images.each do |picture| %>
+	<img class="show_images" src="<%= picture.photo %>">
+<% end %>
+
 

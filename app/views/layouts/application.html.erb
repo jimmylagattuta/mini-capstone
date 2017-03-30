@@ -21,18 +21,59 @@
 	      </button>
 	      <a class="navbar-brand" href="/products">James Lagattuta's Dog Adoptions.</a>
 	    </div>
+	    <div class="navbar-header">
+	    <%= form_tag "/search", method: :post do %>
+  		Search: <input type="text" name="search_term">
+  		<input type="submit" value="Search!">
+		<% end %>
+		</div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	       <% if current_user && current_user.admin %>
 	      <ul class="nav navbar-nav">
 	        <li class="active"><a href="/products/new">New Dog <span class="sr-only">(current)</span></a></li>
 	      </ul>
+	       <% end %>
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="/products">Extra Large Dogs <span class="sr-only">(current)</span></a></li>
+	        <li class="active"><a href="/suppliers">Dog Suppliers <span class="sr-only">(current)</span></a></li>
 	      </ul>
+	      <% if !current_user %>
+	      	<ul class="nav navbar-nav">
+	        	<li class="active"><a href="/login">Member Login <span class="sr-only">(current)</span></a></li>
+	      	</ul>
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="/products">Chihuahua Mixes <span class="sr-only">(current)</span></a></li>
+	        <li class="active"><a href="/signup">Signup Here! <span class="sr-only">(current)</span></a></li>
 	      </ul>
+	      <% else %>
+	      	<ul class="nav navbar-nav">
+	        	<li class="active"><a href="/logout">Member Logout <span class="sr-only">(current)</span></a></li>
+	      	</ul>
+	      	<ul class="nav navbar-nav">
+	        <li class="active"><a href="/cartedproducts">Cart <span class="sr-only">(current)</span></a></li>
+	      </ul>
+	      <% end %>
+	       <ul class="nav navbar-nav">
+		      <div class="dropdown">
+	  			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Sorting Options 
+	  				<span class="caret"></span>
+	  				</button>
+	  			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+	    			<li><a href="/products?category_id=1">Sort by 1</a></li>
+	    			<li><a href="/products?category_id=2">Sort by 2</a></li>
+	    			<li><a href="/products?category_id=3">Sort by 3</a></li>
+	    			<li><a href="/products?category_id=4">Sort by 4</a></li>
+	  			</ul>
+				</div> 
+				</ul>
+			
+
+	      <div>
+	      <ul class="nav navbar-nav">
+	       <li class="active">Website Visits: <%= visit_count %> </li>
+	      </ul>
+	      </div>
+
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
     </nav>

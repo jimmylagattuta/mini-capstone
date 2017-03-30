@@ -1,0 +1,13 @@
+<h1> Your Order Details </h1>
+<% @order.carted_products.each do |product| %>
+	<h7> Your new companion or companions: <%= product.quantity.to_s + " " + product.product.name %></h7>
+	<br>
+	<img class="dogs" src="<%= product.product.images.first.photo %>" >
+	<br>
+<% end %>
+
+<h4> Your subtotal is $<%= @order.subtotal %></h4>
+<br>
+<h3> Your tax is $<%= @order.tax %></h3>
+<br>
+<h2> Your total is $<%= @order.total %></h2>

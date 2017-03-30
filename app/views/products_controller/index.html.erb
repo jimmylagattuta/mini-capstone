@@ -1,4 +1,9 @@
-<h1> Products! </h1> 
+<h1 id="welcome"> Welcome! </h1> 
+<div class="petstore">
+<h2 id="store_description">We Have The Largest Dog Breeds Available!</h2>
+<h3 id="store_description_two">And The Smallest, With Many Chihuahua Mixed Breeds!</h3>
+</div>
+<div class="links">
 <a href="/products?sort=name&sort_order=asc">Sort by Name Ascending</a>
 <br>
 <a href="/products?sort=name&sort_order=desc">Sort by Name Descending</a>
@@ -9,17 +14,18 @@
 <br>
 <a href="/products?size=large">Sort by Weight, Extra Large Dogs</a>
 <br>
-<br>
+<a href="/products?small=small">Sort by Weight, Extra Small Dogs</a>
+</div>
 
 
-
-<%= form_tag "/search", method: :post do %>
-  Search: <input type="text" name="search_term">
-  <input type="submit" value="Search!">
+<div> <% if @category %>
+	<h6> <% @category.name %> </h6>
+	<% @categories.each do |category| %>
+		<a href= "/products?category_id=1"> <%= category.name %></a>
+		<br>
+	<% end %>
 <% end %>
-
-<br>
-<br>
+</div>
 
 
 	<% @products.each_slice(3) do |three_products| %>
@@ -28,8 +34,10 @@
 			<div class="col-md-4">
 				<div class="well">
 		 			<div>
-						<h2><a href= "http://localhost:3000/products/<%=product.id%>"> <%= product.name %> </a></h2>
-						<img class="index_product_image" src="<%= product.image %>">
+						<h4><a href= "http://localhost:3000/products/<%=product.id%>"> <%= product.name %> </a></h4>
+						<img class="product_image" src= "<%= product.images.first.photo %>">
+						<br>
+						<h5>We have <%=  product.stock.to_s + " " + product.name %>'s available for adoption </h5>
 						<br>
 					</div>
 				</div>

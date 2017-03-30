@@ -1,0 +1,15 @@
+<h1> Signup Page </h1>
+
+<%= form_tag "/users", method: :post do %>
+	<div>
+	Name: <input type="text" name="user_name">
+	<br>
+	Email: <input type="text" name="user_email">
+	<br>
+	Password: <input type="password" name="user_password">
+	<br>
+	Password Confirmation: <input type="password" name="user_password_confirmation">
+	<br>
+	<input type="submit" name="Sign Up!">
+	</div>
+<% end %>

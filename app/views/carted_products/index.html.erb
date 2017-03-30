@@ -1,0 +1,10 @@
+<h1> Here is your cart </h1>
+<% @carted_products.each do |carted_product| %>
+	<%= carted_product.product.name %>
+	<br>
+	<%= button_to "Remove From Cart", "/cartedproducts/#{carted_product.id}", method: :patch %>
+<% end %>
+<br>
+<%= button_to "Checkout", "/orders", method: :post %>
+<br>
+<%= button_to "Keep Browsing", "/products", method: :get %>
